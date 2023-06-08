@@ -7,9 +7,14 @@ get_pipz(){
   pip install $PIPZ
 }
 
-# other-stuff
-# exa (ls replacement with aliases)
-# rg,fd,fzf,zsh
+kube_conf(){
+  for c in $(aws eks list-clusters --query clusters --output text)
+  do 
+    aws eks update-kubeconfig --name $c
+  done
+}
 
-# vim
-# - vim-plug
+# TODO
+# exa
+# rg,fd,fzf,zsh
+# vim-plug mm
